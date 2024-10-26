@@ -12,20 +12,21 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup Pages
         uses: actions/setup-pages@v2
+        
       - name: Build and Deploy
         run: |
           echo "Building and deploying website..."
-          cp -r ./ru ./gh-pages/ru
-          cp -r ./en ./gh-pages/en
-          cp ./index.html ./gh-pages
+          cp -r ./ru ./main/ru
+          cp -r ./en ./main/en
+          cp ./index.html ./main
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git add .
           git commit -m "Deploy to GitHub Pages"
-          git push origin gh-pages
+          git push origin main
 
         - name: Deploy to GitHub Pages
-          users: peaceiris/actions-gh-pages@v1
+          users: peaceiris/actions-main@v1
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             publish_dir: ./_site
