@@ -16,9 +16,9 @@ jobs:
       - name: Build and Deploy
         run: |
           echo "Building and deploying website..."
-          cp -r ./ru ./main/ru
-          cp -r ./en ./main/en
-          cp ./index.html ./main
+          cp -r v1/ru ./main/ru
+          cp -r v2/en ./main/en
+          cp /index.html ./main
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git add .
