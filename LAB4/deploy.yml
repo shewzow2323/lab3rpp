@@ -16,17 +16,17 @@ jobs:
       - name: Build and Deploy
         run: |
           echo "Building and deploying website..."
-          cp -r v1/ru ./main/ru
-          cp -r v2/en ./main/en
+          cp -r v1/ru ./gh-pages/ru
+          cp -r v2/en ./gh-pages/en
           cp /index.html ./main
           git config --global user.email "actions@github.com"
           git config --global user.name "GitHub Actions"
           git add .
           git commit -m "Deploy to GitHub Pages"
-          git push origin main
+          git push origin gh-pages
 
         - name: Deploy to GitHub Pages
-          users: peaceiris/actions-main@v1
+          users: peaceiris/actions-gh-pages@v1
           with:
             github_token: ${{ secrets.GITHUB_TOKEN }}
             publish_dir: ./_site
